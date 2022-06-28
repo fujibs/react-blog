@@ -1,11 +1,13 @@
 import Homepage from "./pages/homepage/Homepage.jsx"
-import TopBar from "./topbar/Topbar.jsx";
+import TopBar from "./components/topbar/Topbar.jsx";
+import SinglePost from "./pages/singlePost/SinglePost.jsx";
+
 
 function App() {
   return (
     <>
       <TopBar />
-      <Homepage />
+      <SinglePost />
     </>
   );
 }

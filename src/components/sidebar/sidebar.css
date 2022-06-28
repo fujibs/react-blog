@@ -34,8 +34,9 @@
     margin-top: 15px;
 }
 
-.sidebarItem > p {
+.aboutMeDesc {
     padding: 30px;
+    line-height: 20px;
 }
 
 .sidebarList {

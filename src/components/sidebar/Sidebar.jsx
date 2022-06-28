@@ -9,7 +9,7 @@ export default function Sidebar() {
                 src="https://i.imgur.com/9GNTYLW.jpg" 
                 alt="Me" 
             />
-            <p>
+            <p className="aboutMeDesc">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Officia, tenetur itaque cum aliquam pariatur ut consequuntur harum magni est. 
                 Repellendus quisquam nisi inventore aperiam qui, repellat itaque magnam eveniet quia?
