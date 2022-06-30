@@ -1,0 +1,94 @@
+.settings {
+    display: flex;
+}
+
+.settingsWrapper {
+    flex: 9;
+    padding: 20px;
+}
+
+.settingsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settingsUpdateTitle {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: lightskyblue;
+}
+
+.settingsDeleteTitle {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    color: white;
+    background-color: #ED5E68;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.settingsForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsProfilePicture {
+    display: flex;
+    align-items: center;
+    margin-top: 10px 0px;
+}
+
+.settingsProfilePicture > img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.settingsPPIcon {
+    border-radius: 100%;
+    background-color: white;
+    color: lightblue;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.updatePPText {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    color: white;
+    background-color: #A6FF4D;
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.settingsForm > label {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.settingsForm > input {
+    color: gray;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.updateSettings {
+    width: 150px;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}

@@ -12,6 +12,7 @@
 
 .writeForm {
     position: relative;
+    height: 100vh;
 }
 
 .writeFormGroup {
