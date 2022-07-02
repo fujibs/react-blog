@@ -5,7 +5,6 @@ import Write from "./pages/write/Write.jsx";
 import Settings from "./pages/settings/Settings.jsx";
 import Login from "./pages/login/Login.jsx";
 import Register from "./pages/register/Register.jsx";
-import ReactDOM from "react-dom/client";
 import {
   BrowserRouter,
   Routes,
