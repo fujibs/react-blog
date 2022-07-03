@@ -11,10 +11,6 @@ const cors = require("cors");
 
 dotenv.config();
 app.use(express.json());
-
-/**
- * enable cross domain requests
- */
 app.use(cors());
 
 mongoose
@@ -41,10 +37,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-/**
- * Change port to 8000 since our react app
- * is already listening on port 3000
- */
 const PORT = 8080;
 
 app.listen(PORT, () => {
