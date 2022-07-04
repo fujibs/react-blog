@@ -52,3 +52,10 @@
     color: white;
     border-radius: 10px;
 }
+
+.registerFailedText {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

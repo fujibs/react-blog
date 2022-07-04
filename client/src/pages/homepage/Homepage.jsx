@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
   const {search} = useLocation();
+  const [hasError, setError] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -19,10 +20,14 @@ export default function Homepage() {
         const res = await axios.get(url);
         setPosts(res.data);
         console.log(res.data);
-      } catch (e) {
-        // handle your errors here
-        console.log(e);
+      } catch (error) {
+        console.log(error);
+        setError(true);
       }
+    }
+
+    if (hasError) {
+      return <p>Loading posts failed.</p>
     }
 
     if (mounted) fetchDataAsync();
