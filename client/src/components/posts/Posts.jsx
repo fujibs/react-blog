@@ -6,7 +6,7 @@ import "./posts.css";
  * 
  * https://reactjs.org/docs/lists-and-keys.html
  */
-export default function Posts({ posts }) {
+export default function Posts({posts}) {
   return (
     <div className="posts">
       {posts.map((p) => (

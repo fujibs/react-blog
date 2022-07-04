@@ -8,10 +8,12 @@ const postRoute = require("./routes/posts.js");
 const categoryRoute = require("./routes/categories.js");
 const multer = require("multer");
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config();
 app.use(express.json());
 app.use(cors());
+app.use("/images", express.static(path.join(__dirname, "/images")))
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -40,5 +42,5 @@ app.use("/api/categories", categoryRoute);
 const PORT = 8080;
 
 app.listen(PORT, () => {
-  console.log("Connected on PORT ", PORT);
+  console.log("Connected on PORT", PORT);
 });

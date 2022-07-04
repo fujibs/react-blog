@@ -10,9 +10,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { ContextProvider } from './context/Context.js';
+
 
 function App() {
-  const user = false;
+  const user = true;
   return (
     <BrowserRouter>
       <TopBar />
@@ -20,7 +22,7 @@ function App() {
         <Route exact path="/" element={<Homepage />} />
         <Route path="/register" element={user ? <Homepage /> : <Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/write" element={user ? <Write /> : <Register />} />
+        <Route path="/write" element={<Write />} />
         <Route path="/settings" element={user ? <Settings /> : <Register />} />
         <Route path="/post/:postId" element={<Single />} />
       </Routes>

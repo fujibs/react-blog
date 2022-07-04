@@ -5,7 +5,7 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description: {
+    desc: {
         type: String,
         required: true,
     },
@@ -15,11 +15,11 @@ const PostSchema = new mongoose.Schema({
     },
     displayName: {
         type: String,
-        required: true,
+        required: false, // change when login added
     },
     email: {
         type: String,
-        required: true,
+        required: false, // change when login added
     },
     categories: {
         type: Array,

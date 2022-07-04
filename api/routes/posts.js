@@ -38,20 +38,22 @@ router.put("/:id", async (req, res) => {
 });
 
 //DELETE POST
+/*
+if (post.email === req.body.email) {
+  else {
+    res.status(401).json("This is not your post!");
+  }
+*/
 router.delete("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.email === req.body.email) {
       try {
         await post.delete();
         res.status(200).json("Post has been deleted...  ");
       } catch (err) {
         res.status(500).json(err);
       }
-    } else {
-      res.status(401).json("This is not your post!");
-    }
-  } catch (err) {
+    } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -67,8 +69,6 @@ router.delete("/:id", async (req, res) => {
  });
 
 //GET ALL POSTS
-// we remove the '?'
-// https://stackabuse.com/get-query-strings-and-parameters-in-express-js/
 router.get("/", async (req, res) => {
   console.log("getting data");
   const email = req.query.user;

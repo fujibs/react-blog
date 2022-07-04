@@ -1,30 +1,81 @@
+import axios from "axios"
+import {useState, useContext} from "react"
+import { Context } from "../../context/Context"
 import "./write.css"
 
 export default function Write() {
+  const [title, setTitle] = useState("")
+  const [desc, setDesc] = useState("")
+  const [file, setFile] = useState(null)
+  const {user} = useContext(Context)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newPost = {
+      title,
+      desc,
+      // email: user.email,
+    }
+    if(file){
+      const data = new FormData()
+      const filename = Date.now() + file.name
+      data.append("name", filename)
+      data.append("file", file)
+      newPost.photo = filename;
+      try{
+        let url = "http://localhost:8080/api/upload"
+        const res = await axios.post(url, data)
+      } catch(error) {
+        console.log(error)
+      }
+    }
+  try {
+      let url = "http://localhost:8080/api/posts"
+      const res = await axios.post(url, newPost)
+      let singleUrl = "http://localhost:3000/post/" + res.data_id
+      window.location.replace(singleUrl)
+    } catch(error) {
+      console.log(error)
+    }
+  }
   return (
     <div className="write">
-        <img 
-            className="writeImg"
-            src="https://imgs.search.brave.com/n8ht-0kEn2KDwVoZDHKZT05OJ-NLZqkv916jcJ6ssVo/rs:fit:1080:720:1/g:ce/aHR0cHM6Ly9zcGly/aXR1YWxpdHloZWFs/dGguY29tL2Fzc2V0/cy9pbWFnZXMvQmxv/Z3MvX2FydGljbGVT/dW1tYXJ5SW1hZ2Uv/am91cm5hbHMuanBn"
-            alt="Your upload" 
-        />
-        <form className="writeForm">
-            <div className="writeFormGroup">
-                <label htmlFor="fileInput">
-                    <i className="writeIcon fa-solid fa-file-circle-plus"></i>
-                </label>
-                <input type="file" id="fileInput" style={{display: "none"}}/>
-                <input type="text" placeholder="Title" className="writeInput" autoFocus={true}/>
-            </div>
-            <div className="writeFormGroup">
-                <textarea
-                    className="writeInput writeText"
-                    type="text"
-                    placeholder="Tell me a tale..."
-                ></textarea>
-            </div>
-        </form>
-        <button className="writeSubmit">Publish</button>
+      {file &&
+      <img 
+        className="writeImg"
+        src={URL.createObjectURL(file)}
+        alt="Your upload" 
+      />
+      }
+      <form className="writeForm" onSubmit={handleSubmit}>
+        <div className="writeFormGroup">
+          <label htmlFor="fileInput">
+            <i className="writeIcon fa-solid fa-file-circle-plus"></i>
+          </label>
+            <input 
+              type="file" 
+              id="fileInput" 
+              style={{display: "none"}} 
+              onChange={e=>setFile(e.target.files[0])}
+            />
+            <input 
+              type="text" 
+              placeholder="Title" 
+              className="writeInput" 
+              autoFocus={true}
+              onChange={e=>setTitle(e.target.value)}
+            />
+        </div>
+        <div className="writeFormGroup">
+          <textarea
+            className="writeInput writeText"
+            type="text"
+            placeholder="Tell me a tale..."
+            onChange={e=>setDesc(e.target.value)}
+          ></textarea>
+        </div>
+        <button className="writeSubmit" type="submit">Publish</button>
+      </form>
     </div>
   )
 }
