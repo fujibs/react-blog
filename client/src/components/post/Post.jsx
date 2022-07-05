@@ -2,7 +2,7 @@ import "./post.css"
 import {Link} from "react-router-dom"
 
 export default function Post({post}) {
-  const publicFolder = "localhost:8080/images/"
+  const publicFolder = "https://bsalty-react-blog.herokuapp.com/images/"
   return (
     <div className="post">
         {post.photo && (
