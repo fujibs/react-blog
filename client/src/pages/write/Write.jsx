@@ -23,14 +23,14 @@ export default function Write() {
       data.append("file", file)
       newPost.photo = filename;
       try{
-        let url = "https://bsalty-react-blog.herokuapp.com/api/upload"
+        let url = "http://localhost:8080/api/upload"
         const res = await axios.post(url, data)
       } catch(error) {
         console.log(error)
       }
     }
   try {
-      let url = "https://bsalty-react-blog.herokuapp.com/api/posts"
+      let url = "http://localhost:8080/api/posts"
       const res = await axios.post(url, newPost)
       let singleUrl = "http://localhost:3000/post/" + res.data_id
       window.location.replace(singleUrl)
