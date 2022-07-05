@@ -39,6 +39,8 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen(process.env.PORT || 8080), () => {
+const PORT = 8080;
+
+app.listen(PORT, () => {
   console.log("Connected on PORT", PORT);
-};
+});
