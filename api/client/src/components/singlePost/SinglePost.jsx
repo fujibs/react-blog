@@ -39,9 +39,9 @@ export default function SinglePost() {
 
     const handleDelete = async()=> {
       try{
-        let url = "http://localhost:8080/api/posts/" + path
+        let url = "https://bsalty-react-blog.herokuapp.com/api/posts/" + path
         await axios.delete(url)
-        let homeUrl = "http://localhost:3000/"
+        let homeUrl = "https://bsalty-react-blog.herokuapp.com/"
         window.location.replace(homeUrl)
       } catch (error) {
         console.log(error)
@@ -50,7 +50,7 @@ export default function SinglePost() {
 
   const handleUpdate = async() => {
     try{
-      let url = "http://localhost:8080/api/posts/" + path
+      let url = "https://bsalty-react-blog.herokuapp.com/api/posts/" + path
       await axios.put(url, {
         title,
         desc,
