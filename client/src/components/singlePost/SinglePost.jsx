@@ -19,7 +19,7 @@ export default function SinglePost() {
       async function fetchDataAsync() {
         console.log("Fetch Data");
         try {
-          const url = "https://bsalty-react-blog.herokuapp.com/posts/" + path;
+          const url = "http://localhost:8080/api/posts/" + path;
           const res = await axios.get(url);
           setPost(res.data);
           setTitle(res.data.title);
@@ -39,7 +39,7 @@ export default function SinglePost() {
 
     const handleDelete = async()=> {
       try{
-        let url = "https://bsalty-react-blog.herokuapp.com/api/posts/" + path
+        let url = "http://localhost:8080/api/posts/" + path
         await axios.delete(url)
         let homeUrl = "http://localhost:3000/"
         window.location.replace(homeUrl)
@@ -50,7 +50,7 @@ export default function SinglePost() {
 
   const handleUpdate = async() => {
     try{
-      let url = "https://bsalty-react-blog.herokuapp.com/posts/" + path
+      let url = "http://localhost:8080/api/posts/" + path
       await axios.put(url, {
         title,
         desc,
