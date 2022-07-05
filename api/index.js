@@ -39,8 +39,12 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-const PORT = 8080;
+app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.listen(PORT, () => {
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
+app.listen(process.env.PORT || 8080, () => {
   console.log("Connected on PORT", PORT);
 });
