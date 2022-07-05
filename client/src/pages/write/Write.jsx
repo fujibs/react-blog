@@ -32,7 +32,7 @@ export default function Write() {
   try {
       let url = "http://localhost:8080/api/posts"
       const res = await axios.post(url, newPost)
-      let singleUrl = "http://localhost:3000/"
+      let singleUrl = "http://localhost:3000/post/" + res.data_id
       window.location.replace(singleUrl)
     } catch(error) {
       console.log(error)
