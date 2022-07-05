@@ -23,16 +23,16 @@ export default function Write() {
       data.append("file", file)
       newPost.photo = filename;
       try{
-        let url = "http://localhost:8080/api/upload"
+        let url = "https://bsalty-react-blog.herokuapp.com//api/upload"
         const res = await axios.post(url, data)
       } catch(error) {
         console.log(error)
       }
     }
   try {
-      let url = "http://localhost:8080/api/posts"
+      let url = "https://bsalty-react-blog.herokuapp.com/api/posts"
       const res = await axios.post(url, newPost)
-      let singleUrl = "http://localhost:3000/post/" + res.data_id
+      let singleUrl = "https://bsalty-react-blog.herokuapp.com/client/post/" + res.data_id
       window.location.replace(singleUrl)
     } catch(error) {
       console.log(error)

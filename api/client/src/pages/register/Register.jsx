@@ -13,7 +13,7 @@ export default function Register() {
     setError(false)
     e.preventDefault()
     try {
-      const url = "http://localhost:8080/api/auth/register"
+      const url = "https://bsalty-react-blog.herokuapp.com/api/auth/register"
       const res = await axios.post(url, {
         displayName ,
         email,

@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault()
     // dispatch({ type: "LOGIN_START"})
     try{
-      const url = "http://localhost:8080/auth/login"
+      const url = "https://bsalty-react-blog.herokuapp.com/api/auth/login"
       const res = await axios.post(url, {
         email: emailRef.current.value,
         password: passwordRef.current.value,

@@ -16,7 +16,7 @@ export default function Homepage() {
     async function fetchDataAsync() {
       console.log("Fetch Data");
       try {
-        const url = "http://localhost:8080/api/posts" + search;
+        const url = "https://bsalty-react-blog.herokuapp.com/api/posts" + search;
         const res = await axios.get(url);
         setPosts(res.data);
         console.log(res.data);

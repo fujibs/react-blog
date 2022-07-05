@@ -41,7 +41,7 @@ export default function SinglePost() {
       try{
         let url = "https://bsalty-react-blog.herokuapp.com/api/posts/" + path
         await axios.delete(url)
-        let homeUrl = "https://bsalty-react-blog.herokuapp.com/"
+        let homeUrl = "https://bsalty-react-blog.herokuapp.com/client/homepage"
         window.location.replace(homeUrl)
       } catch (error) {
         console.log(error)
