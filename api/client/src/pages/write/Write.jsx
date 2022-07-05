@@ -28,7 +28,14 @@ export default function Write() {
       }
     }
   try {
+<<<<<<< HEAD:api/client/src/pages/write/Write.jsx
       const res = await axiosInstance.post("/posts", newPost)
+=======
+      let url = "http://localhost:8080/api/posts"
+      const res = await axios.post(url, newPost)
+      let singleUrl = "http://localhost:3000/post/" + res.data_id
+      window.location.replace(singleUrl)
+>>>>>>> parent of 3072a70 (functionality finished mostly (small bugs)):client/src/pages/write/Write.jsx
     } catch(error) {
       console.log(error)
     }
